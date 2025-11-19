@@ -1,0 +1,1086 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:233 (message)"
+      - "CMakeLists.txt:34 (project)"
+    message: |
+      The system is: Linux - 6.8.1-1031-realtime - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:34 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/bin/cc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /home/ntia/srsRAN_4G-master/build/CMakeFiles/3.28.3/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:34 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/bin/c++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /home/ntia/srsRAN_4G-master/build/CMakeFiles/3.28.3/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:34 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-ZDKMaH"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-ZDKMaH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-ZDKMaH'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0d13d/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_0d13d.dir/build.make CMakeFiles/cmTC_0d13d.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-ZDKMaH'
+        Building C object CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        OFFLOAD_TARGET_NAMES=nvptx-none:hsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-6ubuntu2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-xyHAOX/gcc-9-9.5.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex
+        Thread model: posix
+        gcc version 9.5.0 (Ubuntu 9.5.0-6ubuntu2) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccInHoz2.s
+        GNU C17 (Ubuntu 9.5.0-6ubuntu2) version 9.5.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 9.5.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-linux-gnu/9/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        GNU C17 (Ubuntu 9.5.0-6ubuntu2) version 9.5.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 9.5.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: b16a10d46a56f943da7fc0c0caafade0
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o /tmp/ccInHoz2.s
+        GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_0d13d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d13d.dir/link.txt --verbose=1
+        /usr/bin/cc  -v CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o -o cmTC_0d13d 
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none:hsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-6ubuntu2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-xyHAOX/gcc-9-9.5.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex
+        Thread model: posix
+        gcc version 9.5.0 (Ubuntu 9.5.0-6ubuntu2) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0d13d' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cc27rtDI.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0d13d /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0d13d' '-mtune=generic' '-march=x86-64'
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-ZDKMaH'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:34 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/x86_64-linux-gnu/9/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/9/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/9/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/lib/gcc/x86_64-linux-gnu/9/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:159 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:34 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-ZDKMaH']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0d13d/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_0d13d.dir/build.make CMakeFiles/cmTC_0d13d.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-ZDKMaH']
+        ignore line: [Building C object CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-6ubuntu2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-xyHAOX/gcc-9-9.5.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex]
+        ignore line: [Thread model: posix]
+        ignore line: [gcc version 9.5.0 (Ubuntu 9.5.0-6ubuntu2) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccInHoz2.s]
+        ignore line: [GNU C17 (Ubuntu 9.5.0-6ubuntu2) version 9.5.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 9.5.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C17 (Ubuntu 9.5.0-6ubuntu2) version 9.5.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 9.5.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: b16a10d46a56f943da7fc0c0caafade0]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o /tmp/ccInHoz2.s]
+        ignore line: [GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking C executable cmTC_0d13d]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d13d.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o -o cmTC_0d13d ]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.5.0-6ubuntu2' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-xyHAOX/gcc-9-9.5.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex]
+        ignore line: [Thread model: posix]
+        ignore line: [gcc version 9.5.0 (Ubuntu 9.5.0-6ubuntu2) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0d13d' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cc27rtDI.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0d13d /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/cc27rtDI.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_0d13d] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
+          arg [CMakeFiles/cmTC_0d13d.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9] ==> [/usr/lib/gcc/x86_64-linux-gnu/9]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> [/usr/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/9;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:34 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wCXc2r"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wCXc2r"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wCXc2r'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_e0f6d/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_e0f6d.dir/build.make CMakeFiles/cmTC_e0f6d.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wCXc2r'
+        Building CXX object CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 10.5.0-4ubuntu2' --with-bugurl=file:///usr/share/doc/gcc-10/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-10 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 10.5.0 (Ubuntu 10.5.0-4ubuntu2) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/10/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cco5e9lZ.s
+        GNU C++14 (Ubuntu 10.5.0-4ubuntu2) version 10.5.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 10.5.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/10"
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/10/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../x86_64-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/include/c++/10
+         /usr/include/x86_64-linux-gnu/c++/10
+         /usr/include/c++/10/backward
+         /usr/lib/gcc/x86_64-linux-gnu/10/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        GNU C++14 (Ubuntu 10.5.0-4ubuntu2) version 10.5.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 10.5.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: 40ef290d89f1f3740f354dd84b9ac4cb
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o /tmp/cco5e9lZ.s
+        GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        Linking CXX executable cmTC_e0f6d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e0f6d.dir/link.txt --verbose=1
+        /usr/bin/c++  -v CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_e0f6d 
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 10.5.0-4ubuntu2' --with-bugurl=file:///usr/share/doc/gcc-10/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-10 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 10.5.0 (Ubuntu 10.5.0-4ubuntu2) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e0f6d' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccQUuHfB.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e0f6d /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e0f6d' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wCXc2r'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:34 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/include/c++/10]
+          add: [/usr/include/x86_64-linux-gnu/c++/10]
+          add: [/usr/include/c++/10/backward]
+          add: [/usr/lib/gcc/x86_64-linux-gnu/10/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/include/c++/10] ==> [/usr/include/c++/10]
+        collapse include dir [/usr/include/x86_64-linux-gnu/c++/10] ==> [/usr/include/x86_64-linux-gnu/c++/10]
+        collapse include dir [/usr/include/c++/10/backward] ==> [/usr/include/c++/10/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/10/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/10/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/include/c++/10;/usr/include/x86_64-linux-gnu/c++/10;/usr/include/c++/10/backward;/usr/lib/gcc/x86_64-linux-gnu/10/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:159 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:34 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wCXc2r']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_e0f6d/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_e0f6d.dir/build.make CMakeFiles/cmTC_e0f6d.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wCXc2r']
+        ignore line: [Building CXX object CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 10.5.0-4ubuntu2' --with-bugurl=file:///usr/share/doc/gcc-10/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-10 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 10.5.0 (Ubuntu 10.5.0-4ubuntu2) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/10/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/cco5e9lZ.s]
+        ignore line: [GNU C++14 (Ubuntu 10.5.0-4ubuntu2) version 10.5.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 10.5.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring duplicate directory "/usr/include/x86_64-linux-gnu/c++/10"]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/10/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/10/../../../../x86_64-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/include/c++/10]
+        ignore line: [ /usr/include/x86_64-linux-gnu/c++/10]
+        ignore line: [ /usr/include/c++/10/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/10/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C++14 (Ubuntu 10.5.0-4ubuntu2) version 10.5.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 10.5.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: 40ef290d89f1f3740f354dd84b9ac4cb]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o /tmp/cco5e9lZ.s]
+        ignore line: [GNU assembler version 2.42 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking CXX executable cmTC_e0f6d]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e0f6d.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/c++  -v CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_e0f6d ]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 10.5.0-4ubuntu2' --with-bugurl=file:///usr/share/doc/gcc-10/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-10 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-bootstrap --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-mutex]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 10.5.0 (Ubuntu 10.5.0-4ubuntu2) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/10/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/10/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e0f6d' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/10/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper -plugin-opt=-fresolution=/tmp/ccQUuHfB.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_e0f6d /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/10 -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/10/../../.. CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/10/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/10/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/10/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccQUuHfB.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_e0f6d] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/10] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/10]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/10/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../..]
+          arg [CMakeFiles/cmTC_e0f6d.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/10] ==> [/usr/lib/gcc/x86_64-linux-gnu/10]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/10/../../..] ==> [/usr/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/10/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/10/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/10;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "cmake/modules/CheckAtomic.cmake:39 (CHECK_CXX_SOURCE_COMPILES)"
+      - "cmake/modules/CheckAtomic.cmake:70 (check_working_cxx_atomics)"
+      - "CMakeLists.txt:140 (include)"
+    checks:
+      - "Performing Test HAVE_CXX_ATOMICS_WITHOUT_LIB"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-HoSRI6"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-HoSRI6"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_CXX_ATOMICS_WITHOUT_LIB"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-HoSRI6'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_05a95/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_05a95.dir/build.make CMakeFiles/cmTC_05a95.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-HoSRI6'
+        Building CXX object CMakeFiles/cmTC_05a95.dir/src.cxx.o
+        /usr/bin/c++ -DHAVE_CXX_ATOMICS_WITHOUT_LIB  -std=c++11 -o CMakeFiles/cmTC_05a95.dir/src.cxx.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-HoSRI6/src.cxx
+        Linking CXX executable cmTC_05a95
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05a95.dir/link.txt --verbose=1
+        /usr/bin/c++   -std=c++11 CMakeFiles/cmTC_05a95.dir/src.cxx.o -o cmTC_05a95 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-HoSRI6'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "cmake/modules/CheckAtomic.cmake:52 (CHECK_CXX_SOURCE_COMPILES)"
+      - "cmake/modules/CheckAtomic.cmake:90 (check_working_cxx_atomics64)"
+      - "CMakeLists.txt:140 (include)"
+    checks:
+      - "Performing Test HAVE_CXX_ATOMICS64_WITHOUT_LIB"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-KQDFr1"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-KQDFr1"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_CXX_ATOMICS64_WITHOUT_LIB"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-KQDFr1'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_b1ab6/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_b1ab6.dir/build.make CMakeFiles/cmTC_b1ab6.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-KQDFr1'
+        Building CXX object CMakeFiles/cmTC_b1ab6.dir/src.cxx.o
+        /usr/bin/c++ -DHAVE_CXX_ATOMICS64_WITHOUT_LIB  -std=c++11 -o CMakeFiles/cmTC_b1ab6.dir/src.cxx.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-KQDFr1/src.cxx
+        Linking CXX executable cmTC_b1ab6
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1ab6.dir/link.txt --verbose=1
+        /usr/bin/c++  -std=c++11 CMakeFiles/cmTC_b1ab6.dir/src.cxx.o -o cmTC_b1ab6 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-KQDFr1'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "CMakeLists.txt:162 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wQ5GJI"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wQ5GJI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wQ5GJI'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2703a/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_2703a.dir/build.make CMakeFiles/cmTC_2703a.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wQ5GJI'
+        Building C object CMakeFiles/cmTC_2703a.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_2703a.dir/src.c.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wQ5GJI/src.c
+        Linking C executable cmTC_2703a
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2703a.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_2703a.dir/src.c.o -o cmTC_2703a 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wQ5GJI'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "cmake/modules/FindUHD.cmake:72 (check_cxx_source_compiles)"
+      - "CMakeLists.txt:211 (find_package)"
+    checks:
+      - "Performing Test UHD_ENABLE_X300_FW_RESET"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PEL85M"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PEL85M"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "UHD_ENABLE_X300_FW_RESET"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PEL85M'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_73c7b/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_73c7b.dir/build.make CMakeFiles/cmTC_73c7b.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PEL85M'
+        Building CXX object CMakeFiles/cmTC_73c7b.dir/src.cxx.o
+        /usr/bin/c++ -DUHD_ENABLE_X300_FW_RESET  -L/usr/local/lib -o CMakeFiles/cmTC_73c7b.dir/src.cxx.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PEL85M/src.cxx
+        Linking CXX executable cmTC_73c7b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_73c7b.dir/link.txt --verbose=1
+        /usr/bin/c++   -L/usr/local/lib CMakeFiles/cmTC_73c7b.dir/src.cxx.o -o cmTC_73c7b  -luhd -lboost_program_options -lboost_system 
+        /usr/bin/ld: CMakeFiles/cmTC_73c7b.dir/src.cxx.o: in function `try_usrp_x300_reset()':
+        src.cxx:(.text+0xe4): undefined reference to `x300_make_ctrl_iface_enet(std::shared_ptr<uhd::transport::udp_simple>, bool)'
+        collect2: error: ld returned 1 exit status
+        gmake[1]: *** [CMakeFiles/cmTC_73c7b.dir/build.make:99: cmTC_73c7b] Error 1
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PEL85M'
+        gmake: *** [Makefile:127: cmTC_73c7b/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "cmake/modules/FindUHD.cmake:93 (check_cxx_source_compiles)"
+      - "CMakeLists.txt:211 (find_package)"
+    checks:
+      - "Performing Test UHD_ENABLE_RFNOC"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-DX5o1C"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-DX5o1C"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "UHD_ENABLE_RFNOC"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-DX5o1C'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_34b6a/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_34b6a.dir/build.make CMakeFiles/cmTC_34b6a.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-DX5o1C'
+        Building CXX object CMakeFiles/cmTC_34b6a.dir/src.cxx.o
+        /usr/bin/c++ -DUHD_ENABLE_RFNOC  -L/usr/local/lib -o CMakeFiles/cmTC_34b6a.dir/src.cxx.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-DX5o1C/src.cxx
+        /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-DX5o1C/src.cxx:2:14: fatal error: uhd/device3.hpp: No such file or directory
+            2 |     #include <uhd/device3.hpp>
+              |              ^~~~~~~~~~~~~~~~~
+        compilation terminated.
+        gmake[1]: *** [CMakeFiles/cmTC_34b6a.dir/build.make:78: CMakeFiles/cmTC_34b6a.dir/src.cxx.o] Error 1
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-DX5o1C'
+        gmake: *** [Makefile:127: cmTC_34b6a/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "cmake/modules/FindUHD.cmake:122 (check_cxx_source_compiles)"
+      - "CMakeLists.txt:211 (find_package)"
+    checks:
+      - "Performing Test UHD_ENABLE_CUSTOM_RFNOC"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-XMXKtb"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-XMXKtb"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "UHD_ENABLE_CUSTOM_RFNOC"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-XMXKtb'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c516f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_c516f.dir/build.make CMakeFiles/cmTC_c516f.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-XMXKtb'
+        Building CXX object CMakeFiles/cmTC_c516f.dir/src.cxx.o
+        /usr/bin/c++ -DUHD_ENABLE_CUSTOM_RFNOC  -L/usr/local/lib -o CMakeFiles/cmTC_c516f.dir/src.cxx.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-XMXKtb/src.cxx
+        /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-XMXKtb/src.cxx:2:14: fatal error: uhd/device3.hpp: No such file or directory
+            2 |     #include <uhd/device3.hpp>
+              |              ^~~~~~~~~~~~~~~~~
+        compilation terminated.
+        gmake[1]: *** [CMakeFiles/cmTC_c516f.dir/build.make:78: CMakeFiles/cmTC_c516f.dir/src.cxx.o] Error 1
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-XMXKtb'
+        gmake: *** [Makefile:127: cmTC_c516f/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:352 (check_cxx_compiler_flag)"
+      - "CMakeLists.txt:369 (ADD_CXX_COMPILER_FLAG_IF_AVAILABLE)"
+    checks:
+      - "Performing Test HAVE_WNO_UNUSED_BUT_SET_VARIABLE"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-EaX034"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-EaX034"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -Wall -Wno-comment -Wno-reorder -Wno-unused-variable -Wtype-limits -std=c++14 -fno-strict-aliasing"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_WNO_UNUSED_BUT_SET_VARIABLE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-EaX034'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_be4bc/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_be4bc.dir/build.make CMakeFiles/cmTC_be4bc.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-EaX034'
+        Building CXX object CMakeFiles/cmTC_be4bc.dir/src.cxx.o
+        /usr/bin/c++ -DHAVE_WNO_UNUSED_BUT_SET_VARIABLE  -Wall -Wno-comment -Wno-reorder -Wno-unused-variable -Wtype-limits -std=c++14 -fno-strict-aliasing    -Wno-unused-but-set-variable -o CMakeFiles/cmTC_be4bc.dir/src.cxx.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-EaX034/src.cxx
+        Linking CXX executable cmTC_be4bc
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_be4bc.dir/link.txt --verbose=1
+        /usr/bin/c++  -Wall -Wno-comment -Wno-reorder -Wno-unused-variable -Wtype-limits -std=c++14 -fno-strict-aliasing  CMakeFiles/cmTC_be4bc.dir/src.cxx.o -o cmTC_be4bc 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-EaX034'
+        
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake/modules/CheckCSourceRuns.cmake:62 (try_run)"
+      - "cmake/modules/FindSSE.cmake:39 (check_c_source_runs)"
+      - "CMakeLists.txt:372 (find_package)"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_SSE_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_92a82/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_92a82.dir/build.make CMakeFiles/cmTC_92a82.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_92a82.dir/src.c.o
+        /usr/bin/cc   -DHAVE_SSE -msse4.1 -o CMakeFiles/cmTC_92a82.dir/src.c.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp/src.c
+        Linking C executable cmTC_92a82
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92a82.dir/link.txt --verbose=1
+        /usr/bin/cc  -DHAVE_SSE -msse4.1 CMakeFiles/cmTC_92a82.dir/src.c.o -o cmTC_92a82 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "HAVE_SSE_EXITCODE"
+      cached: true
+      stdout: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake/modules/CheckCSourceRuns.cmake:62 (try_run)"
+      - "cmake/modules/FindSSE.cmake:63 (check_c_source_runs)"
+      - "CMakeLists.txt:372 (find_package)"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_AVX_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_b2b37/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_b2b37.dir/build.make CMakeFiles/cmTC_b2b37.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_b2b37.dir/src.c.o
+        /usr/bin/cc   -DHAVE_AVX -mavx -o CMakeFiles/cmTC_b2b37.dir/src.c.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp/src.c
+        Linking C executable cmTC_b2b37
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b2b37.dir/link.txt --verbose=1
+        /usr/bin/cc  -DHAVE_AVX -mavx CMakeFiles/cmTC_b2b37.dir/src.c.o -o cmTC_b2b37 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "HAVE_AVX_EXITCODE"
+      cached: true
+      stdout: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake/modules/CheckCSourceRuns.cmake:62 (try_run)"
+      - "cmake/modules/FindSSE.cmake:97 (check_c_source_runs)"
+      - "CMakeLists.txt:372 (find_package)"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_AVX2_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_20ca5/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_20ca5.dir/build.make CMakeFiles/cmTC_20ca5.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_20ca5.dir/src.c.o
+        /usr/bin/cc   -DHAVE_AVX2 -mavx2 -o CMakeFiles/cmTC_20ca5.dir/src.c.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp/src.c
+        Linking C executable cmTC_20ca5
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_20ca5.dir/link.txt --verbose=1
+        /usr/bin/cc  -DHAVE_AVX2 -mavx2 CMakeFiles/cmTC_20ca5.dir/src.c.o -o cmTC_20ca5 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "HAVE_AVX2_EXITCODE"
+      cached: true
+      stdout: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake/modules/CheckCSourceRuns.cmake:62 (try_run)"
+      - "cmake/modules/FindSSE.cmake:131 (check_c_source_runs)"
+      - "CMakeLists.txt:372 (find_package)"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_FMA_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_05fb6/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_05fb6.dir/build.make CMakeFiles/cmTC_05fb6.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_05fb6.dir/src.c.o
+        /usr/bin/cc   -DHAVE_FMA -mfma -o CMakeFiles/cmTC_05fb6.dir/src.c.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp/src.c
+        Linking C executable cmTC_05fb6
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05fb6.dir/link.txt --verbose=1
+        /usr/bin/cc  -DHAVE_FMA -mfma CMakeFiles/cmTC_05fb6.dir/src.c.o -o cmTC_05fb6 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "HAVE_FMA_EXITCODE"
+      cached: true
+      stdout: |
+      exitCode: 0
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cmake/modules/CheckCSourceRuns.cmake:62 (try_run)"
+      - "cmake/modules/FindSSE.cmake:166 (check_c_source_runs)"
+      - "CMakeLists.txt:372 (find_package)"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_AVX512_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_28ffd/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_28ffd.dir/build.make CMakeFiles/cmTC_28ffd.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_28ffd.dir/src.c.o
+        /usr/bin/cc   -DHAVE_AVX512 -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 -o CMakeFiles/cmTC_28ffd.dir/src.c.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp/src.c
+        Linking C executable cmTC_28ffd
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_28ffd.dir/link.txt --verbose=1
+        /usr/bin/cc  -DHAVE_AVX512 -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 CMakeFiles/cmTC_28ffd.dir/src.c.o -o cmTC_28ffd 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+    runResult:
+      variable: "HAVE_AVX512_EXITCODE"
+      cached: true
+      stdout: |
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCCompilerFlag.cmake:51 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:360 (check_c_compiler_flag)"
+      - "CMakeLists.txt:375 (ADD_C_COMPILER_FLAG_IF_AVAILABLE)"
+    checks:
+      - "Performing Test HAVE_MARCH_native"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-rIegHw"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-rIegHw"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_MARCH_native"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-rIegHw'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3bb55/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_3bb55.dir/build.make CMakeFiles/cmTC_3bb55.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-rIegHw'
+        Building C object CMakeFiles/cmTC_3bb55.dir/src.c.o
+        /usr/bin/cc -DHAVE_MARCH_native  -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512   -march=native -o CMakeFiles/cmTC_3bb55.dir/src.c.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-rIegHw/src.c
+        Linking C executable cmTC_3bb55
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3bb55.dir/link.txt --verbose=1
+        /usr/bin/cc  -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 CMakeFiles/cmTC_3bb55.dir/src.c.o -o cmTC_3bb55 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-rIegHw'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:352 (check_cxx_compiler_flag)"
+      - "CMakeLists.txt:391 (ADD_CXX_COMPILER_FLAG_IF_AVAILABLE)"
+    checks:
+      - "Performing Test HAVE_VISIBILITY_HIDDEN_CXX"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wYBptr"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wYBptr"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -Wall -Wno-comment -Wno-reorder -Wno-unused-variable -Wtype-limits -std=c++14 -fno-strict-aliasing -Wno-unused-but-set-variable -march=native -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_VISIBILITY_HIDDEN_CXX"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wYBptr'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_13840/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_13840.dir/build.make CMakeFiles/cmTC_13840.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wYBptr'
+        Building CXX object CMakeFiles/cmTC_13840.dir/src.cxx.o
+        /usr/bin/c++ -DHAVE_VISIBILITY_HIDDEN_CXX  -Wall -Wno-comment -Wno-reorder -Wno-unused-variable -Wtype-limits -std=c++14 -fno-strict-aliasing -Wno-unused-but-set-variable -march=native -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512   -fvisibility=hidden -o CMakeFiles/cmTC_13840.dir/src.cxx.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wYBptr/src.cxx
+        Linking CXX executable cmTC_13840
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13840.dir/link.txt --verbose=1
+        /usr/bin/c++  -Wall -Wno-comment -Wno-reorder -Wno-unused-variable -Wtype-limits -std=c++14 -fno-strict-aliasing -Wno-unused-but-set-variable -march=native -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 CMakeFiles/cmTC_13840.dir/src.cxx.o -o cmTC_13840 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-wYBptr'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCCompilerFlag.cmake:51 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:360 (check_c_compiler_flag)"
+      - "CMakeLists.txt:403 (ADD_C_COMPILER_FLAG_IF_AVAILABLE)"
+    checks:
+      - "Performing Test HAVE_ERROR_INCOMPATIBLE"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PVtX8N"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PVtX8N"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -march=native"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_ERROR_INCOMPATIBLE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PVtX8N'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3fbd9/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_3fbd9.dir/build.make CMakeFiles/cmTC_3fbd9.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PVtX8N'
+        Building C object CMakeFiles/cmTC_3fbd9.dir/src.c.o
+        /usr/bin/cc -DHAVE_ERROR_INCOMPATIBLE  -march=native -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512   -Werror=incompatible-pointer-types -o CMakeFiles/cmTC_3fbd9.dir/src.c.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PVtX8N/src.c
+        Linking C executable cmTC_3fbd9
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3fbd9.dir/link.txt --verbose=1
+        /usr/bin/cc  -march=native -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 CMakeFiles/cmTC_3fbd9.dir/src.c.o -o cmTC_3fbd9 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-PVtX8N'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCCompilerFlag.cmake:51 (cmake_check_compiler_flag)"
+      - "CMakeLists.txt:360 (check_c_compiler_flag)"
+      - "CMakeLists.txt:485 (ADD_C_COMPILER_FLAG_IF_AVAILABLE)"
+    checks:
+      - "Performing Test HAVE_VISIBILITY_HIDDEN_C"
+    directories:
+      source: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-RrfB3Q"
+      binary: "/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-RrfB3Q"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -march=native -Werror=incompatible-pointer-types -Wall -Wno-comment -Wno-write-strings -Wno-unused-result -Wformat -Wmissing-field-initializers -Wtype-limits -std=c99 -fno-strict-aliasing -D_GNU_SOURCE -Wno-unused-but-set-variable -O3 -fno-trapping-math -fno-math-errno -DBUILD_TYPE_RELEASE -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE -mfma -DLV_HAVE_FMA -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 -Ofast -funroll-loops"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/ntia/srsRAN_4G-master/cmake/modules"
+    buildResult:
+      variable: "HAVE_VISIBILITY_HIDDEN_C"
+      cached: true
+      stdout: |
+        Change Dir: '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-RrfB3Q'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_67e80/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_67e80.dir/build.make CMakeFiles/cmTC_67e80.dir/build
+        gmake[1]: Entering directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-RrfB3Q'
+        Building C object CMakeFiles/cmTC_67e80.dir/src.c.o
+        /usr/bin/cc -DHAVE_VISIBILITY_HIDDEN_C  -march=native -Werror=incompatible-pointer-types -Wall -Wno-comment -Wno-write-strings -Wno-unused-result -Wformat -Wmissing-field-initializers -Wtype-limits -std=c99 -fno-strict-aliasing -D_GNU_SOURCE -Wno-unused-but-set-variable -O3 -fno-trapping-math -fno-math-errno -DBUILD_TYPE_RELEASE -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE -mfma -DLV_HAVE_FMA -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 -Ofast -funroll-loops  -march=native -Werror=incompatible-pointer-types -Wall -Wno-comment -Wno-write-strings -Wno-unused-result -Wformat -Wmissing-field-initializers -Wtype-limits -std=c99 -fno-strict-aliasing -D_GNU_SOURCE -Wno-unused-but-set-variable -O3 -fno-trapping-math -fno-math-errno -DBUILD_TYPE_RELEASE -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE -mfma -DLV_HAVE_FMA -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 -Ofast -funroll-loops   -fvisibility=hidden -o CMakeFiles/cmTC_67e80.dir/src.c.o -c /home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-RrfB3Q/src.c
+        Linking C executable cmTC_67e80
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_67e80.dir/link.txt --verbose=1
+        /usr/bin/cc  -march=native -Werror=incompatible-pointer-types -Wall -Wno-comment -Wno-write-strings -Wno-unused-result -Wformat -Wmissing-field-initializers -Wtype-limits -std=c99 -fno-strict-aliasing -D_GNU_SOURCE -Wno-unused-but-set-variable -O3 -fno-trapping-math -fno-math-errno -DBUILD_TYPE_RELEASE -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE -mfma -DLV_HAVE_FMA -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 -Ofast -funroll-loops  -march=native -Werror=incompatible-pointer-types -Wall -Wno-comment -Wno-write-strings -Wno-unused-result -Wformat -Wmissing-field-initializers -Wtype-limits -std=c99 -fno-strict-aliasing -D_GNU_SOURCE -Wno-unused-but-set-variable -O3 -fno-trapping-math -fno-math-errno -DBUILD_TYPE_RELEASE -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE -mfma -DLV_HAVE_FMA -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 -Ofast -funroll-loops CMakeFiles/cmTC_67e80.dir/src.c.o -o cmTC_67e80 
+        gmake[1]: Leaving directory '/home/ntia/srsRAN_4G-master/build/CMakeFiles/CMakeScratch/TryCompile-RrfB3Q'
+        
+      exitCode: 0
+...
