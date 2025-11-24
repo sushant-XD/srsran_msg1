@@ -127,6 +127,15 @@ static int parse_args(all_args_t* args, int argc, char* argv[])
     ("rf.bands.tx[4].min", bpo::value<float>(&args->rf.ch_tx_bands[4].min)->default_value(0), "Lower frequency boundary for CH4-TX")
     ("rf.bands.tx[4].max", bpo::value<float>(&args->rf.ch_tx_bands[4].max)->default_value(0), "Higher frequency boundary for CH4-TX")
 
+
+    ("msg1.enabled",        bpo::value<bool>(&args->msg1.enabled)->default_value(false),          "Whether to enable or disable MSG1 attack")
+    ("msg1.num_of_preambles",  bpo::value<int>(&args->msg1.num_of_preambles)->default_value(1),          "Number of Preambles")
+    ("msg1.max_preamble_index",      bpo::value<int>(&args->msg1.max_preamble_index)->default_value(64),             "Max Preamble Index")
+    ("msg1.preamble_power",        bpo::value<int>(&args->msg1.preamble_power)->default_value(1),          "Initial Power multiplier for Preamble")
+    ("msg1.ramping_step",  bpo::value<int>(&args->msg1.ramping_step)->default_value(1),          "Ramping step (interval to increase the power)")
+    ("msg1.ramping_db",      bpo::value<int>(&args->msg1.ramping_db)->default_value(1),             "Ramping Power increase at every step")
+    ("msg1.max_ramping_db",  bpo::value<int>(&args->msg1.max_ramping_db)->default_value(3),          "Max Ramping Ceiling (keep below 10dB)")
+
     ("rat.eutra.dl_earfcn",    bpo::value<string>(&args->phy.dl_earfcn)->default_value("3400"),     "Downlink EARFCN list")
     ("rat.eutra.ul_earfcn",    bpo::value<string>(&args->phy.ul_earfcn),                            "Uplink EARFCN list. Optional.")
     ("rat.eutra.dl_freq",      bpo::value<float>(&args->phy.dl_freq)->default_value(-1),            "Downlink Frequency (if positive overrides EARFCN)")

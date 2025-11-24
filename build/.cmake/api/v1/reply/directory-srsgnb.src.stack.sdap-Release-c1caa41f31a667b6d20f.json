@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "srsgnb/src/stack/sdap",
+		"source" : "srsgnb/src/stack/sdap"
+	}
+}

@@ -861,20 +861,22 @@ int srsran_prach_gen_all(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal)
     // Pair 1: Random Index
     // Pair 2: Random Index + 32 (Max Spacing)
     uint32_t idx_1 = random_seed;
-    uint32_t idx_2 = random_seed + 32;
+    /* uint32_t idx_2 = random_seed + 32; */
 
     // --- GENERATE PAIR ---
     cf_t* seq1 = get_precoded_dft(p, idx_1);
-    cf_t* seq2 = get_precoded_dft(p, idx_2);
+    /* cf_t* seq2 = get_precoded_dft(p, idx_2); */
 
     for (int k = 0; k < p->N_zc; k++) {
       // Sum the two signals
-      p->ifft_in[begin + k] = seq1[k] + seq2[k];
+      /* p->ifft_in[begin + k] = seq1[k] + seq2[k]; */
+
+      p->ifft_in[begin + k] = seq1[k];
     }
 
     srsran_dft_run(&p->ifft, p->ifft_in, p->ifft_out);
 
-    float power_ctrl = 2.0f;
+    float power_ctrl = 6.0f;
 
     for (int k = 0; k < p->N_ifft_prach; k++) {
       p->ifft_out[k] *= power_ctrl;

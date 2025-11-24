@@ -1,0 +1,340 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "srsepc/src/srsmbms"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"install",
+			"target_link_libraries",
+			"add_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"srsepc/src/CMakeLists.txt",
+			"lib/src/common/CMakeLists.txt",
+			"lib/src/phy/CMakeLists.txt",
+			"CMakeLists.txt",
+			"srsepc/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 53,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 80,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 54,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 63,
+				"parent" : 4
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 61,
+				"parent" : 6
+			},
+			{
+				"file" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 132,
+				"parent" : 8
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 247,
+				"parent" : 8
+			},
+			{
+				"command" : 4,
+				"file" : 3,
+				"line" : 638,
+				"parent" : 8
+			},
+			{
+				"command" : 4,
+				"file" : 3,
+				"line" : 639,
+				"parent" : 8
+			},
+			{
+				"file" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 4,
+				"line" : 35,
+				"parent" : 13
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -Wall -Wno-comment -Wno-reorder -Wno-unused-variable -Wtype-limits -std=c++14 -fno-strict-aliasing -Wno-unused-but-set-variable -march=native -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE -fvisibility=hidden -O3 -fno-trapping-math -fno-math-errno -DBUILD_TYPE_RELEASE -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 -Werror -O3 -DNDEBUG -fPIE"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 9,
+					"define" : "ASSERTS_ENABLED"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_PROGRAM_OPTIONS_DYN_LINK"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_PROGRAM_OPTIONS_NO_LIB"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_SYSTEM_DYN_LINK"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "BOOST_SYSTEM_NO_LIB"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "ENABLE_TIMEPROF"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 11,
+					"path" : "/home/ntia/srsRAN_4G-master/build/lib/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/ntia/srsRAN_4G-master/lib/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/home/ntia/srsRAN_4G-master"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/home/ntia/srsRAN_4G-master/cmake/modules"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "srsran_asn1::@c7bb5f4ea0d7305d920a"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "srsran_common::@7806e941b10f07a3cdfe"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "srsran_phy::@ff75a69bd6f9fa6d3921"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "srsran_gtpu::@fa6146c716af10669e3d"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "srslog::@ad47f0aceb6ab6835148"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "support::@eee3a3e78be170f850bb"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "srsepc_mbms_gw::@a78d48ee8f44b1d6bccb"
+		}
+	],
+	"id" : "srsmbms::@31eb63d5a1d748036bfa",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "bin"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-Wall -Wno-comment -Wno-reorder -Wno-unused-variable -Wtype-limits -std=c++14 -fno-strict-aliasing -Wno-unused-but-set-variable -march=native -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE -fvisibility=hidden -O3 -fno-trapping-math -fno-math-errno -DBUILD_TYPE_RELEASE -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 -Werror -O3 -DNDEBUG",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-L/usr/lib/gcc/x86_64-linux-gnu/9",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "mbms-gw/libsrsepc_mbms_gw.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "../../lib/src/asn1/libsrsran_asn1.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "../../lib/src/gtpu/libsrsran_gtpu.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "../../lib/src/common/libsrsran_common.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "../../lib/src/srslog/libsrslog.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.83.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.83.0",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libmbedcrypto.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libconfig++.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libsctp.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "../../lib/src/asn1/libsrsran_asn1.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "../../lib/src/phy/libsrsran_phy.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "-lm",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 7,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libfftw3f.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "../../lib/src/support/libsupport.a",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "srsmbms",
+	"nameOnDisk" : "srsmbms",
+	"paths" : 
+	{
+		"build" : "srsepc/src",
+		"source" : "srsepc/src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "srsepc/src/mbms-gw/main.cc",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

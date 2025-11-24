@@ -1,0 +1,633 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/cqi.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/csi.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/dci.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/dci_nbiot.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/dci_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/harq_ack.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/mib_sl.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/npbch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/npdcch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/npdsch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pbch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pbch_msg_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pbch_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pcfich.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pdcch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pdcch_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pdsch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pdsch_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/phch_cfg_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/phich.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pmch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/prach.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/prb_dl.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/psbch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pscch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pssch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pucch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pucch_cfg_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pucch_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pucch_proc.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pusch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/pusch_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/ra.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/ra_dl.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/ra_dl_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/ra_nbiot.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/ra_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/ra_sl.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/ra_ul.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/ra_ul_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/regs.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/sch.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/sch_nr.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/sci.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/sequences.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/uci.c.o"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeFiles/srsran_phch.dir/uci_nr.c.o"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"add_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"lib/src/phy/phch/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 22,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 132,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 247,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 638,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 639,
+				"parent" : 2
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -march=native -Werror=incompatible-pointer-types -Wall -Wno-comment -Wno-write-strings -Wno-unused-result -Wformat -Wmissing-field-initializers -Wtype-limits -std=c99 -fno-strict-aliasing -D_GNU_SOURCE -Wno-unused-but-set-variable -O3 -fno-trapping-math -fno-math-errno -DBUILD_TYPE_RELEASE -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE -mfma -DLV_HAVE_FMA -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 -Ofast -funroll-loops -fvisibility=hidden -Werror --param large-function-growth=1600 -O3 -DNDEBUG -fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "ASSERTS_ENABLED"
+				},
+				{
+					"backtrace" : 4,
+					"define" : "ENABLE_TIMEPROF"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 5,
+					"path" : "/home/ntia/srsRAN_4G-master/build/lib/include"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/home/ntia/srsRAN_4G-master/lib/include"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46
+			]
+		}
+	],
+	"id" : "srsran_phch::@703cbd4d06317a6a5bb7",
+	"name" : "srsran_phch",
+	"paths" : 
+	{
+		"build" : "lib/src/phy/phch",
+		"source" : "lib/src/phy/phch"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29,
+				30,
+				31,
+				32,
+				33,
+				34,
+				35,
+				36,
+				37,
+				38,
+				39,
+				40,
+				41,
+				42,
+				43,
+				44,
+				45,
+				46
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/cqi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/csi.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/dci.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/dci_nbiot.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/dci_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/harq_ack.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/mib_sl.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/npbch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/npdcch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/npdsch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pbch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pbch_msg_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pbch_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pcfich.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pdcch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pdcch_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pdsch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pdsch_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/phch_cfg_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/phich.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pmch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/prach.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/prb_dl.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/psbch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pscch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pssch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pucch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pucch_cfg_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pucch_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pucch_proc.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pusch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/pusch_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/ra.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/ra_dl.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/ra_dl_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/ra_nbiot.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/ra_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/ra_sl.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/ra_ul.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/ra_ul_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/regs.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/sch.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/sch_nr.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/sci.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/sequences.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/uci.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/phch/uci_nr.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "OBJECT_LIBRARY"
+}

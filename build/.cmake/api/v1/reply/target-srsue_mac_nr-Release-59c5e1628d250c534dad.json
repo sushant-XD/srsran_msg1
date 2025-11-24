@@ -1,0 +1,237 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "srsue/src/stack/mac_nr/libsrsue_mac_nr.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"add_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"srsue/src/stack/mac_nr/CMakeLists.txt",
+			"CMakeLists.txt",
+			"srsue/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 30,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 132,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 247,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 638,
+				"parent" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 639,
+				"parent" : 3
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 31,
+				"parent" : 8
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -Wall -Wno-comment -Wno-reorder -Wno-unused-variable -Wtype-limits -std=c++14 -fno-strict-aliasing -Wno-unused-but-set-variable -march=native -mfpmath=sse -mavx2 -DLV_HAVE_AVX2 -DLV_HAVE_AVX -DLV_HAVE_SSE -fvisibility=hidden -O3 -fno-trapping-math -fno-math-errno -DBUILD_TYPE_RELEASE -mavx512f -mavx512cd -mavx512bw -mavx512dq -DLV_HAVE_AVX512 -Werror -O3 -DNDEBUG -fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 4,
+					"define" : "ASSERTS_ENABLED"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "ENABLE_TIMEPROF"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "/home/ntia/srsRAN_4G-master/build/lib/include"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/home/ntia/srsRAN_4G-master/lib/include"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/home/ntia/srsRAN_4G-master"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/ntia/srsRAN_4G-master/cmake/modules"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "srsran_common::@7806e941b10f07a3cdfe"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "srsran_mac::@d99b061c8453fcf8555b"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "srsran_phy::@ff75a69bd6f9fa6d3921"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "srslog::@ad47f0aceb6ab6835148"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "support::@eee3a3e78be170f850bb"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "srsue_mac_common::@f9e87dcec00d33202ebc"
+		}
+	],
+	"id" : "srsue_mac_nr::@a0416aad115a2c89e422",
+	"name" : "srsue_mac_nr",
+	"nameOnDisk" : "libsrsue_mac_nr.a",
+	"paths" : 
+	{
+		"build" : "srsue/src/stack/mac_nr",
+		"source" : "srsue/src/stack/mac_nr"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "srsue/src/stack/mac_nr/mac_nr.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "srsue/src/stack/mac_nr/proc_ra_nr.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "srsue/src/stack/mac_nr/proc_bsr_nr.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "srsue/src/stack/mac_nr/proc_sr_nr.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "srsue/src/stack/mac_nr/mux_nr.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "srsue/src/stack/mac_nr/demux_nr.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "srsue/src/stack/mac_nr/dl_harq_nr.cc",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "srsue/src/stack/mac_nr/ul_harq_nr.cc",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

@@ -430,6 +430,9 @@ FORCE_32BIT:BOOL=OFF
 //GCC compile for specific architecture.
 GCC_ARCH:STRING=native
 
+//Path to a program.
+GITCOMMAND:FILEPATH=/usr/bin/git
+
 //Path to a file.
 LIBBFD_INCLUDE_DIR:PATH=LIBBFD_INCLUDE_DIR-NOTFOUND
 
@@ -650,7 +653,7 @@ srsgnb_rrc_LIB_DEPENDS:STATIC=general;srsgnb_rrc_config_utils;
 srsgnb_rrc_config_utils_LIB_DEPENDS:STATIC=general;srsran_phy;
 
 //Dependencies for the target
-srsran_common_LIB_DEPENDS:STATIC=general;srsran_phy;general;support;general;srslog;general;/usr/lib/x86_64-linux-gnu/libmbedcrypto.so;
+srsran_common_LIB_DEPENDS:STATIC=general;srsran_phy;general;support;general;srslog;general;/usr/lib/x86_64-linux-gnu/libmbedcrypto.so;general;/usr/lib/x86_64-linux-gnu/libsctp.so;
 
 //Dependencies for the target
 srsran_gtpu_LIB_DEPENDS:STATIC=general;srsran_common;general;srsran_asn1;
@@ -976,6 +979,8 @@ FIND_PACKAGE_MESSAGE_DETAILS_SCTP:INTERNAL=[/usr/lib/x86_64-linux-gnu/libsctp.so
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Details about finding UHD
 FIND_PACKAGE_MESSAGE_DETAILS_UHD:INTERNAL=[/usr/local/lib/libuhd.so][/usr/local/include][v()]
+//ADVANCED property for variable: GITCOMMAND
+GITCOMMAND-ADVANCED:INTERNAL=1
 //Test HAVE_AVX
 HAVE_AVX:INTERNAL=1
 //Test HAVE_AVX2

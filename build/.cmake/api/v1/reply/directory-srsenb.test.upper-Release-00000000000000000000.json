@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "srsue/src/stack/mac_nr",
+		"source" : "srsue/src/stack/mac_nr"
+	}
+}
