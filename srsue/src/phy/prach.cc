@@ -79,6 +79,23 @@ void prach::stop()
   mem_initiated = false;
 }
 
+void prach::set_msg1_params(bool enabled, uint32_t num_preambles, uint32_t max_index, float power, 
+                             uint32_t ramp_step, float ramp_db, float max_ramp_db)
+{
+  std::lock_guard<std::mutex> lock(mutex);
+  msg1_enabled       = enabled;
+  msg1_num_preambles = num_preambles;
+  msg1_max_index     = max_index;
+  msg1_power         = power;
+  msg1_ramp_step     = ramp_step;
+  msg1_ramp_db       = ramp_db;
+  msg1_max_ramp_db   = max_ramp_db;
+  
+  logger.info("MSG1 parameters set: enabled=%d, num_preambles=%d, max_index=%d, power=%.2f, "
+              "ramp_step=%d, ramp_db=%.2f, max_ramp_db=%.2f",
+              enabled, num_preambles, max_index, power, ramp_step, ramp_db, max_ramp_db);
+}
+
 bool prach::set_cell(srsran_cell_t cell_, srsran_prach_cfg_t prach_cfg)
 {
   std::lock_guard<std::mutex> lock(mutex);
@@ -117,6 +134,15 @@ bool prach::set_cell(srsran_cell_t cell_, srsran_prach_cfg_t prach_cfg)
   len             = prach_obj.N_seq + prach_obj.N_cp;
   transmitted_tti = -1;
   cell_initiated  = true;
+
+  // Set MSG1 parameters in prach_obj
+  prach_obj.msg1_enabled          = msg1_enabled;
+  prach_obj.msg1_num_preambles    = msg1_num_preambles;
+  prach_obj.msg1_max_preamble_index = msg1_max_index;
+  prach_obj.msg1_preamble_power   = msg1_power;
+  prach_obj.msg1_ramping_step     = msg1_ramp_step;
+  prach_obj.msg1_ramping_db       = msg1_ramp_db;
+  prach_obj.msg1_max_ramping_db   = msg1_max_ramp_db;
 
   logger.info("Finished setting new PRACH configuration.");
 

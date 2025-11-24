@@ -139,6 +139,16 @@ void phy::run_thread()
 {
   std::unique_lock<std::mutex> lock(config_mutex);
   prach_buffer.init(SRSRAN_MAX_PRB);
+  
+  // Set MSG1 attack parameters if enabled
+  prach_buffer.set_msg1_params(args.msg1.enabled,
+                                args.msg1.num_of_preambles,
+                                args.msg1.max_preamble_index,
+                                args.msg1.preamble_power,
+                                args.msg1.ramping_step,
+                                args.msg1.ramping_db,
+                                args.msg1.max_ramping_db);
+  
   common.init(&args, radio, stack, &sfsync);
 
   // Initialise workers

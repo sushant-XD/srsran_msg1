@@ -45,6 +45,10 @@ public:
   bool  is_pending() const;
   cf_t* generate(float cfo, uint32_t* nof_sf, float* target_power = NULL);
 
+  // Set MSG1 attack parameters
+  void set_msg1_params(bool enabled, uint32_t num_preambles, uint32_t max_index, float power, 
+                       uint32_t ramp_step, float ramp_db, float max_ramp_db);
+
   phy_interface_mac_lte::prach_info_t get_info() const;
 
 private:
@@ -69,6 +73,15 @@ private:
   bool                  mem_initiated    = false;
   bool                  cell_initiated   = false;
   mutable std::mutex    mutex;
+
+  // MSG1 attack parameters
+  bool     msg1_enabled          = false;
+  uint32_t msg1_num_preambles    = 1;
+  uint32_t msg1_max_index        = 31;
+  float    msg1_power            = 1.0f;
+  uint32_t msg1_ramp_step        = 1;
+  float    msg1_ramp_db          = 1.0f;
+  float    msg1_max_ramp_db      = 3.0f;
 };
 
 } // namespace srsue

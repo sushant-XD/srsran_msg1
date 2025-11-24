@@ -119,6 +119,15 @@ typedef struct SRSRAN_API {
   cf_t                        sub[839 * 2];
   float                       phase[839];
 
+  // MSG1 attack parameters
+  bool     msg1_enabled;
+  uint32_t msg1_num_preambles;
+  uint32_t msg1_max_preamble_index;
+  float    msg1_preamble_power;
+  uint32_t msg1_ramping_step;
+  float    msg1_ramping_db;
+  float    msg1_max_ramping_db;
+
 } srsran_prach_t;
 
 typedef struct SRSRAN_API {

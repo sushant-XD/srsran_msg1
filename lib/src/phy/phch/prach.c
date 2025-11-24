@@ -853,30 +853,48 @@ int srsran_prach_gen_all(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal)
 
     srsran_vec_cf_zero(p->ifft_in, p->N_ifft_prach);
 
-    // --- CHAOS LOGIC (Randomization) ---
-    // Instead of rotating 0,1,2... we pick a random start point (0-31).
-    // This makes the attack unpredictable for the Victim UE.
-    uint32_t random_seed = rand() % 32;
+    // --- Use MSG1 configuration parameters ---
+    // Get random seed based on max_preamble_index from config
+    uint32_t max_index = p->msg1_max_preamble_index < 64 ? p->msg1_max_preamble_index : 31;
+    uint32_t random_seed = rand() % (max_index + 1);
 
-    // Pair 1: Random Index
-    // Pair 2: Random Index + 32 (Max Spacing)
-    uint32_t idx_1 = random_seed;
-    /* uint32_t idx_2 = random_seed + 32; */
+    // Number of preambles to combine from config
+    uint32_t num_preambles = p->msg1_num_preambles > 0 ? p->msg1_num_preambles : 1;
+    if (num_preambles > 4) {
+      num_preambles = 4; // Cap at 4 for safety
+    }
 
-    // --- GENERATE PAIR ---
-    cf_t* seq1 = get_precoded_dft(p, idx_1);
-    /* cf_t* seq2 = get_precoded_dft(p, idx_2); */
-
-    for (int k = 0; k < p->N_zc; k++) {
-      // Sum the two signals
-      /* p->ifft_in[begin + k] = seq1[k] + seq2[k]; */
-
-      p->ifft_in[begin + k] = seq1[k];
+    // Generate and combine multiple preambles
+    for (uint32_t i = 0; i < num_preambles; i++) {
+      uint32_t idx = (random_seed + i * (64 / num_preambles)) % 64;
+      cf_t* seq = get_precoded_dft(p, idx);
+      
+      for (int k = 0; k < p->N_zc; k++) {
+        p->ifft_in[begin + k] += seq[k];
+      }
     }
 
     srsran_dft_run(&p->ifft, p->ifft_in, p->ifft_out);
 
-    float power_ctrl = 6.0f;
+    // Use power control from MSG1 config with ramping
+    // Apply base power and ramping
+    float power_ctrl = p->msg1_preamble_power;
+    
+    // Apply ramping if configured
+    static uint32_t ramping_counter = 0;
+    if (p->msg1_ramping_step > 0) {
+      uint32_t ramp_steps = ramping_counter / p->msg1_ramping_step;
+      float total_ramp_db = ramp_steps * p->msg1_ramping_db;
+      
+      // Cap at max_ramping_db
+      if (total_ramp_db > p->msg1_max_ramping_db) {
+        total_ramp_db = p->msg1_max_ramping_db;
+      }
+      
+      // Convert dB to linear scale: 10^(dB/20)
+      power_ctrl *= powf(10.0f, total_ramp_db / 20.0f);
+      ramping_counter++;
+    }
 
     for (int k = 0; k < p->N_ifft_prach; k++) {
       p->ifft_out[k] *= power_ctrl;

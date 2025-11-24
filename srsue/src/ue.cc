@@ -93,6 +93,15 @@ int ue::init(const all_args_t& args_)
   phy_args_nr.store_pdsch_ko       = args.phy.nr_store_pdsch_ko;
   phy_args_nr.srate_hz             = args.rf.srate_hz;
 
+  // Copy MSG1 attack parameters to PHY args
+  args.phy.msg1.enabled            = args.msg1.enabled;
+  args.phy.msg1.num_of_preambles   = args.msg1.num_of_preambles;
+  args.phy.msg1.max_preamble_index = args.msg1.max_preamble_index;
+  args.phy.msg1.preamble_power     = static_cast<float>(args.msg1.preamble_power);
+  args.phy.msg1.ramping_step       = args.msg1.ramping_step;
+  args.phy.msg1.ramping_db         = static_cast<float>(args.msg1.ramping_db);
+  args.phy.msg1.max_ramping_db     = static_cast<float>(args.msg1.max_ramping_db);
+
   // init layers
   if (args.phy.nof_lte_carriers == 0) {
     // SA mode
