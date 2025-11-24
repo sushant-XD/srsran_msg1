@@ -563,6 +563,17 @@ int srsran_prach_init(srsran_prach_t* p, uint32_t max_N_ifft_ul)
     bzero(p, sizeof(srsran_prach_t));
 
     p->max_N_ifft_ul = max_N_ifft_ul;
+    
+    // Initialize MSG1 parameters with defaults
+    p->msg1_enabled           = false;
+    p->msg1_num_preambles     = 1;
+    p->msg1_max_preamble_index = 31;
+    p->msg1_preamble_power    = 1.0f;
+    p->msg1_ramping_step      = 1;
+    p->msg1_ramping_db        = 1.0f;
+    p->msg1_max_ramping_db    = 3.0f;
+    
+    DEBUG("PRACH Init - MSG1 parameters initialized to defaults");
 
     // Set up containers
     p->prach_bins = srsran_vec_cf_malloc(SRSRAN_PRACH_N_ZC_LONG);
@@ -736,6 +747,10 @@ int srsran_prach_set_cell_(srsran_prach_t*      p,
         }
       }
     }
+    
+    DEBUG("PRACH set_cell_ completed - MSG1 params: enabled=%d, num_preambles=%d, max_idx=%d, power=%.2f",
+          p->msg1_enabled, p->msg1_num_preambles, p->msg1_max_preamble_index, p->msg1_preamble_power);
+    
     ret = SRSRAN_SUCCESS;
   } else {
     ERROR("Invalid parameters N_ifft_ul=%d; config_idx=%d; root_seq_idx=%d;",

@@ -45,6 +45,8 @@ void prach::init(uint32_t max_prb)
 {
   std::lock_guard<std::mutex> lock(mutex);
 
+  Debug("PRACH: init() called with max_prb=%d", max_prb);
+
   if (srsran_cfo_init(&cfo_h, SRSRAN_PRACH_MAX_LEN)) {
     ERROR("PRACH: Error initiating CFO");
     return;
@@ -62,6 +64,9 @@ void prach::init(uint32_t max_prb)
     Error("Initiating PRACH library");
     return;
   }
+
+  Debug("PRACH: prach_obj initialized, MSG1 params in prach_obj: enabled=%d, num_preambles=%d",
+        prach_obj.msg1_enabled, prach_obj.msg1_num_preambles);
 
   mem_initiated = true;
 }
@@ -109,12 +114,17 @@ bool prach::set_cell(srsran_cell_t cell_, srsran_prach_cfg_t prach_cfg)
 {
   std::lock_guard<std::mutex> lock(mutex);
 
+  Debug("PRACH: set_cell() called for cell_id=%d", cell_.id);
+  Debug("PRACH: Current MSG1 params in class: enabled=%d, num_preambles=%d, max_idx=%d, power=%.2f",
+        msg1_enabled, msg1_num_preambles, msg1_max_index, msg1_power);
+
   if (!mem_initiated) {
     ERROR("PRACH: Error must call init() first");
     return false;
   }
 
   if (cell.id == cell_.id && cell_initiated && prach_cfg == cfg) {
+    Debug("PRACH: Cell already configured, skipping");
     return true;
   }
 
@@ -153,13 +163,16 @@ bool prach::set_cell(srsran_cell_t cell_, srsran_prach_cfg_t prach_cfg)
   prach_obj.msg1_ramping_db       = msg1_ramp_db;
   prach_obj.msg1_max_ramping_db   = msg1_max_ramp_db;
 
-  Debug("PRACH: MSG1 params copied to prach_obj - enabled=%d, num_preambles=%d, max_idx=%d, "
-        "power=%.2f, ramp_step=%d, ramp_db=%.2f, max_ramp_db=%.2f",
-        prach_obj.msg1_enabled, prach_obj.msg1_num_preambles, prach_obj.msg1_max_preamble_index,
-        prach_obj.msg1_preamble_power, prach_obj.msg1_ramping_step, 
-        prach_obj.msg1_ramping_db, prach_obj.msg1_max_ramping_db);
+  Debug("PRACH: MSG1 params AFTER copying to prach_obj:");
+  Debug("  prach_obj.msg1_enabled = %d", prach_obj.msg1_enabled);
+  Debug("  prach_obj.msg1_num_preambles = %d", prach_obj.msg1_num_preambles);
+  Debug("  prach_obj.msg1_max_preamble_index = %d", prach_obj.msg1_max_preamble_index);
+  Debug("  prach_obj.msg1_preamble_power = %.2f", prach_obj.msg1_preamble_power);
+  Debug("  prach_obj.msg1_ramping_step = %d", prach_obj.msg1_ramping_step);
+  Debug("  prach_obj.msg1_ramping_db = %.2f", prach_obj.msg1_ramping_db);
+  Debug("  prach_obj.msg1_max_ramping_db = %.2f", prach_obj.msg1_max_ramping_db);
 
-  logger.info("Finished setting new PRACH configuration.");
+  logger.info("Finished setting new PRACH configuration (cell_id=%d).", cell.id);
 
   return true;
 }
