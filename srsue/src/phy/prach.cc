@@ -83,6 +83,11 @@ void prach::set_msg1_params(bool enabled, uint32_t num_preambles, uint32_t max_i
                              uint32_t ramp_step, float ramp_db, float max_ramp_db)
 {
   std::lock_guard<std::mutex> lock(mutex);
+  
+  Debug("PRACH: Setting MSG1 parameters - enabled=%d, num_preambles=%d, max_index=%d, power=%.2f, "
+        "ramp_step=%d, ramp_db=%.2f, max_ramp_db=%.2f",
+        enabled, num_preambles, max_index, power, ramp_step, ramp_db, max_ramp_db);
+  
   msg1_enabled       = enabled;
   msg1_num_preambles = num_preambles;
   msg1_max_index     = max_index;
@@ -91,9 +96,13 @@ void prach::set_msg1_params(bool enabled, uint32_t num_preambles, uint32_t max_i
   msg1_ramp_db       = ramp_db;
   msg1_max_ramp_db   = max_ramp_db;
   
-  logger.info("MSG1 parameters set: enabled=%d, num_preambles=%d, max_index=%d, power=%.2f, "
-              "ramp_step=%d, ramp_db=%.2f, max_ramp_db=%.2f",
-              enabled, num_preambles, max_index, power, ramp_step, ramp_db, max_ramp_db);
+  if (enabled) {
+    logger.info("MSG1 Attack Mode ENABLED - Config: %d preambles, max_idx=%d, power=%.2f, "
+                "ramp=[step:%d, db:%.2f, max:%.2f]",
+                num_preambles, max_index, power, ramp_step, ramp_db, max_ramp_db);
+  } else {
+    logger.info("MSG1 Attack Mode DISABLED");
+  }
 }
 
 bool prach::set_cell(srsran_cell_t cell_, srsran_prach_cfg_t prach_cfg)
@@ -144,6 +153,12 @@ bool prach::set_cell(srsran_cell_t cell_, srsran_prach_cfg_t prach_cfg)
   prach_obj.msg1_ramping_db       = msg1_ramp_db;
   prach_obj.msg1_max_ramping_db   = msg1_max_ramp_db;
 
+  Debug("PRACH: MSG1 params copied to prach_obj - enabled=%d, num_preambles=%d, max_idx=%d, "
+        "power=%.2f, ramp_step=%d, ramp_db=%.2f, max_ramp_db=%.2f",
+        prach_obj.msg1_enabled, prach_obj.msg1_num_preambles, prach_obj.msg1_max_preamble_index,
+        prach_obj.msg1_preamble_power, prach_obj.msg1_ramping_step, 
+        prach_obj.msg1_ramping_db, prach_obj.msg1_max_ramping_db);
+
   logger.info("Finished setting new PRACH configuration.");
 
   return true;
@@ -157,19 +172,27 @@ bool prach::generate_buffer(uint32_t f_idx)
         cfg.config_idx, cfg.tdd_config.sf_config, (f_idx / 6) * 10, f_idx % 6, cfg.freq_offset, cell.nof_prb);
   }
 #ifdef TEST_PRACH_ALL
-  logger.info("Generating All PRACH preambles to send");
+  if (msg1_enabled) {
+    logger.info("Generating MSG1 attack PRACH with custom parameters (freq_offset=%d)", freq_offset);
+  } else {
+    logger.info("Generating All PRACH preambles to send (freq_offset=%d)", freq_offset);
+  }
+  
+  Debug("PRACH Buffer: Calling srsran_prach_gen_all with freq_offset=%d, f_idx=%d", freq_offset, f_idx);
+  
   if (srsran_prach_gen_all(&prach_obj, freq_offset, signal_buffer)) {
     Error("Generating PRACH preamble %d", preamble_idx);
     return false;
   }
 #else
-  logger.info("Generating PRACH messages");
+  logger.info("Generating PRACH messages (preamble_idx=%d, freq_offset=%d)", preamble_idx, freq_offset);
   if (srsran_prach_gen(&prach_obj, preamble_idx, freq_offset, signal_buffer)) {
     Error("Generating PRACH preamble %d", preamble_idx);
     return false;
   }
 #endif
 
+  Debug("PRACH Buffer: Successfully generated buffer");
   return true;
 }
 

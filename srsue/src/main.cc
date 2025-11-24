@@ -570,6 +570,18 @@ static int parse_args(all_args_t* args, int argc, char* argv[])
     cerr << e.what() << endl;
     return SRSRAN_ERROR;
   }
+  
+  // Log MSG1 configuration if enabled
+  if (args->msg1.enabled) {
+    cout << "MSG1 Attack Configuration from ue.conf:" << endl;
+    cout << "  enabled:            " << (args->msg1.enabled ? "true" : "false") << endl;
+    cout << "  num_of_preambles:   " << args->msg1.num_of_preambles << endl;
+    cout << "  max_preamble_index: " << args->msg1.max_preamble_index << endl;
+    cout << "  preamble_power:     " << args->msg1.preamble_power << endl;
+    cout << "  ramping_step:       " << args->msg1.ramping_step << endl;
+    cout << "  ramping_db:         " << args->msg1.ramping_db << endl;
+    cout << "  max_ramping_db:     " << args->msg1.max_ramping_db << endl;
+  }
 
   // Check conflicting OP/OPc options and which is being used
   if (vm.count("usim.op") && !vm["usim.op"].defaulted() && vm.count("usim.opc") && !vm["usim.opc"].defaulted()) {
