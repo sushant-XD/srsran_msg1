@@ -76,6 +76,22 @@ bool worker_pool::init(const phy_args_nr_t& args, srsran::phy_common_interface& 
   prach_buffer = std::unique_ptr<prach>(new prach(logger));
   prach_buffer->init(phy_state.args.dl.nof_max_prb);
 
+  logger.debug("NR PHY: Passing MSG1 parameters to PRACH buffer - "
+               "enabled=%d,num_preambles=%d,max_index=%d,power=%.2f,ramp_step=%d,ramp_db=%.2f, max_ramp_db=%.2f",
+               args.msg1.enabled,
+               args.msg1.num_of_preambles,
+               args.msg1.max_preamble_index,
+               args.msg1.preamble_power,
+               args.msg1.ramping_step,
+               args.msg1.ramping_db,
+               args.msg1.max_ramping_db);
+  prach_buffer->set_msg1_params(args.msg1.enabled,
+                                args.msg1.num_of_preambles,
+                                args.msg1.max_preamble_index,
+                                args.msg1.preamble_power,
+                                args.msg1.ramping_step,
+                                args.msg1.ramping_db,
+                                args.msg1.max_ramping_db);
   return true;
 }
 
