@@ -1,0 +1,61 @@
+# Build artifacts
+build/
+build_*/
+*.o
+*.a
+*.so
+*.dylib
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!cmake/modules/*.cmake
+
+# Git files
+.git/
+.gitignore
+.gitattributes
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Documentation
+*.md
+!README.md
+docs/
+
+# Test files (keep test directory structure, but exclude test binaries)
+*.test
+
+# CI/CD files
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Debian packaging files
+debian/
+
+# Temporary files
+*.tmp
+*.log
+*.pcap
+/tmp/
+*.tgz
+sysroot/
+trial/
+srsran_trial_*/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Other build scripts
+build_trial.sh
+

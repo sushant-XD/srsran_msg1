@@ -22,3 +22,5 @@ Support
 
 Mailing list: https://lists.srsran.com/mailman/listinfo/srsran-users
 
+`sudo docker build -t srsue:latest .`
+`sudo docker run --rm --privileged srsue:latest`
