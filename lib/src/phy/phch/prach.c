@@ -811,6 +811,25 @@ int srsran_prach_gen(srsran_prach_t* p, uint32_t seq_index, uint32_t freq_offset
   return ret;
 }
 
+/*
+ *  Generates a complete PRACH signal
+ *
+ * This function generates PRACH (Physical Random Access Channel) preambles in the frequency domain,
+ * applies IFFT transformation, and adds power control/increase with power ramping. Combines
+ * multiple preambles and implements MSG1 power ramping for consequent attempts.
+ *
+ * parameters:
+ *  p                Pointer to PRACH context structure containing configuration and buffers
+ *  freq_offset      Frequency offset in resource blocks for PRACH placement
+ *  signal           Output buffer for generated time-domain PRACH signal (with cyclic prefix)
+ *
+ * @return SRSRAN_SUCCESS on success, SRSRAN_ERROR on invalid parameters or frequency offset
+ *
+ * Note: populates prach buffer based on configuration provided. Caps the max preambles number at 8.
+ *
+ * The "actual" function to be called in this place is the srsran_prach_gen (by the legitimate UE).
+ * Referred from that function to make this one
+ */
 int srsran_prach_gen_all(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal)
 {
   int ret = SRSRAN_ERROR;
@@ -826,7 +845,6 @@ int srsran_prach_gen_all(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal)
 
     srsran_vec_cf_zero(p->ifft_in, p->N_ifft_prach);
 
-    // --- Use MSG1 configuration parameters ---
     DEBUG("MSG1 Generation - Using config: enabled=%d, num_preambles=%d, max_index=%d, power=%.2f, "
           "ramp_step=%d, ramp_db=%.2f, max_ramp_db=%.2f",
           p->msg1_enabled,
@@ -837,7 +855,7 @@ int srsran_prach_gen_all(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal)
           p->msg1_ramping_db,
           p->msg1_max_ramping_db);
 
-    // Get random seed based on max_preamble_index from config
+    // Get random seed based on max_preamble_index from config to select a preamble
     uint32_t max_index   = p->msg1_max_preamble_index < 64 ? p->msg1_max_preamble_index : 31;
     uint32_t random_seed = rand() % (max_index + 1);
 
@@ -845,9 +863,9 @@ int srsran_prach_gen_all(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal)
 
     // Number of preambles to combine from config
     uint32_t num_preambles = p->msg1_num_preambles > 0 ? p->msg1_num_preambles : 1;
-    if (num_preambles > 32) {
-      DEBUG("MSG1 Generation - Capping num_preambles from %d to 4 for safety", num_preambles);
-      num_preambles = 32; // Cap at 4 for safety
+    if (num_preambles > 8) {
+      DEBUG("MSG1 Generation - Capping num_preambles from %d to 8 for safety", num_preambles);
+      num_preambles = 8; // Cap at 8 for safety
     }
 
     DEBUG("MSG1 Generation - Combining %d preamble(s)", num_preambles);
@@ -921,6 +939,15 @@ int srsran_prach_gen_all(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal)
   return ret;
 }
 
+/*
+ *
+ * This was an experimental setup intended to send many preambles that would cancel out with the original preamble sent
+ * by the real UE Interesting idea but couldn't fully understand how to implement it.
+ *
+ * Idea that I had was:
+ * generate all 64 (or x amount of) signals that would cancel out with the preambles sent by the real UE and gNodeB
+ * wouldn't be able to detect them Didn't work for obvious reason, and abandoned.
+ */
 int srsran_prach_gen_cancellation(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal)
 {
   int ret = SRSRAN_ERROR;
@@ -952,10 +979,6 @@ int srsran_prach_gen_cancellation(srsran_prach_t* p, uint32_t freq_offset, cf_t*
 
     // Run IFFT
     srsran_dft_run(&p->ifft, p->ifft_in, p->ifft_out);
-
-    // NOTE: I removed the "1/64" volume knob here.
-    // If you want to cancel someone, you need max power.
-    // Just be careful not to damage your USRP TX amplifier.
 
     // Copy CP
     memcpy(signal, &p->ifft_out[p->N_ifft_prach - p->N_cp], p->N_cp * sizeof(cf_t));

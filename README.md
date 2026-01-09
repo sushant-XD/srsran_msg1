@@ -34,11 +34,11 @@ actually decreased the effectiveness from my observation.
 Modifications to existing srsue code
 ======
 There are a few places that the original srsUE code has been changed. Firstly, accepting arguments from the toml file (changes made in ue.h, documenatation 
-available there), prach.h (in phch and phy) (struct to pass attack parameters), prach.cc(calling our custom function), worker_pool.cc(setting config), prach.c 
+available there), `prach.h` (in phch and phy) (struct to pass attack parameters), `prach.cc`(calling our custom function), `worker_pool.cc`(setting config), `prach.c`
 (main implementation).  
 
-See the NOTE on proc_ra_nr.cc which shows a very big limitation on srsRAN and why the test on srsRAN gNodeB might've been very effective (might not be as 
-effective for blackbox RAN).
+*See the NOTE on proc_ra_nr.cc which shows a very big limitation on srsRAN and why the test on srsRAN gNodeB might've been very effective (might not be as 
+effective for blackbox RAN).*
 
 Comments are provided in function implementation and function definitions in the files mentioned above wherever necessary.
 
@@ -47,8 +47,8 @@ Running the Code
 You can run it by building the code like you normally would (guide available in srsRAN docs too).
 
 To make things easy, this project is dockerized, so running the following commands work and its very straightforward:
-`sudo docker build -t srsue:latest .`
-`sudo docker run --rm --privileged srsue:latest`
+- `sudo docker build -t srsue:latest .`
+- `sudo docker run --rm --privileged srsue:latest`
 
 Debugging
 ===

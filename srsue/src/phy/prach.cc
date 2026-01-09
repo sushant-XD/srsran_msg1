@@ -219,6 +219,9 @@ bool prach::set_cell(srsran_cell_t cell_, srsran_prach_cfg_t prach_cfg)
   return true;
 }
 
+// This function generates the PRACH buffer
+// Instead of calling the PRACH generator buffer, we call our custom `srsran_prach_gen_all()` function here
+//
 bool prach::generate_buffer(uint32_t f_idx)
 {
   uint32_t freq_offset = cfg.freq_offset;
