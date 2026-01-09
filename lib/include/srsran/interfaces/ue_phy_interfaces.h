@@ -116,6 +116,17 @@ struct phy_args_t {
   srsran::channel::args_t ul_channel_args;
 
   cfr_args_t cfr_args; ///< Stores user-defined CFR configuration
+
+  // MSG1 attack parameters
+  struct {
+    bool     enabled              = false;
+    uint32_t num_of_preambles     = 1;
+    uint32_t max_preamble_index   = 31;
+    float    preamble_power       = 1.0f;
+    uint32_t ramping_step         = 1;
+    float    ramping_db           = 1.0f;
+    float    max_ramping_db       = 3.0f;
+  } msg1;
 };
 
 /* RAT agnostic Interface MAC -> PHY */

@@ -76,6 +76,22 @@ bool worker_pool::init(const phy_args_nr_t& args, srsran::phy_common_interface& 
   prach_buffer = std::unique_ptr<prach>(new prach(logger));
   prach_buffer->init(phy_state.args.dl.nof_max_prb);
 
+  logger.debug("NR PHY: Passing MSG1 parameters to PRACH buffer - "
+               "enabled=%d,num_preambles=%d,max_index=%d,power=%.2f,ramp_step=%d,ramp_db=%.2f, max_ramp_db=%.2f",
+               args.msg1.enabled,
+               args.msg1.num_of_preambles,
+               args.msg1.max_preamble_index,
+               args.msg1.preamble_power,
+               args.msg1.ramping_step,
+               args.msg1.ramping_db,
+               args.msg1.max_ramping_db);
+  prach_buffer->set_msg1_params(args.msg1.enabled,
+                                args.msg1.num_of_preambles,
+                                args.msg1.max_preamble_index,
+                                args.msg1.preamble_power,
+                                args.msg1.ramping_step,
+                                args.msg1.ramping_db,
+                                args.msg1.max_ramping_db);
   return true;
 }
 
@@ -93,60 +109,42 @@ sf_worker* worker_pool::wait_worker(uint32_t tti)
   logger.set_context(tti);
   sf_worker* worker = (sf_worker*)pool.wait_worker(tti);
 
-  uint32_t pci = 0;
-  {
-    std::lock_guard<std::mutex> lock(cfg_mutex);
-    pci = cfg.carrier.pci;
-    if (pending_cfgs[worker->get_id()]) {
-      pending_cfgs[worker->get_id()] = false;
-      worker->set_cfg(cfg);
-    }
+  uint32_t                    pci = 0;
+  std::lock_guard<std::mutex> lock(cfg_mutex);
+  pci = cfg.carrier.pci;
+  if (pending_cfgs[worker->get_id()]) {
+    pending_cfgs[worker->get_id()] = false;
+    worker->set_cfg(cfg);
   }
 
-  // Generate PRACH if ready
-  if (prach_buffer->is_ready_to_send(tti, pci)) {
-    prach_ptr = prach_buffer->generate(phy_state.get_ul_cfo() / 15000, &prach_nof_sf, &prach_target_power);
+  // Cycle: 20 TTIs
+  // ON: 19 TTIs
+  // OFF: 1 TTI
+  static int blink_timer = 0;
+  blink_timer++;
+  if (blink_timer >= 20) {
+    blink_timer = 0;
+  }
 
-    // Scale signal to maximum
-    {
-      float* ptr   = (float*)prach_ptr;
-      int    max_i = srsran_vec_max_abs_fi(ptr, 2 * sf_sz);
-      float  max   = ptr[max_i];
-      if (std::isnormal(max)) {
-        srsran_vec_sc_prod_cfc(prach_ptr, 0.99f / max, prach_ptr, sf_sz * prach_nof_sf);
+  bool jamming_active = (blink_timer < 19);
+  // ==================================================================
+
+  if (prach_buffer->is_ready_to_send(tti, pci)) {
+    if (jamming_active) {
+      prach_ptr = prach_buffer->generate(phy_state.get_ul_cfo() / 15000, &prach_nof_sf, &prach_target_power);
+
+      if (prach_nof_sf > 0) {
+        worker->set_prach(&prach_ptr[sf_sz * prach_sf_count], prach_target_power);
+
+        prach_sf_count++;
+        if (prach_sf_count >= prach_nof_sf) {
+          prach_nof_sf   = 0;
+          prach_sf_count = 0;
+        }
       }
     }
 
-    uint32_t                    config_idx = 0;
-    srsran_duplex_mode_t        mode       = SRSRAN_DUPLEX_MODE_FDD;
-    srsran_subcarrier_spacing_t scs        = srsran_subcarrier_spacing_15kHz;
-    {
-      std::lock_guard<std::mutex> lock(cfg_mutex);
-      config_idx = cfg.prach.config_idx;
-      mode       = cfg.duplex.mode;
-      scs        = cfg.carrier.scs;
-    }
-
-    // Notify MAC about PRACH transmission
-    // phy_state.stack->prach_sent(
-    //     TTI_TX(tti), srsran_prach_nr_start_symbol(config_idx, mode), SRSRAN_SLOT_NR_MOD(scs, TTI_TX(tti)), 0, 0);
-    //
     prach_buffer->prepare_to_send(0);
-  }
-
-  // Set PRACH transmission buffer in workers if it is pending
-  if (prach_nof_sf > 0) {
-    // Set worker PRACH buffer
-    worker->set_prach(&prach_ptr[sf_sz * prach_sf_count], prach_target_power);
-
-    // Increment SF counter
-    prach_sf_count++;
-
-    // Reset PRACH pending subframe count
-    if (prach_sf_count >= prach_nof_sf) {
-      prach_nof_sf   = 0;
-      prach_sf_count = 0;
-    }
   }
 
   return worker;

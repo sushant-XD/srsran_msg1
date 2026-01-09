@@ -77,6 +77,26 @@ typedef struct {
   std::size_t tracing_buffcapacity;
 } general_args_t;
 
+/*
+ *  Params:
+ *  enabled             -- whether to enable the attack or not
+ *  num_of_preambles    -- number of preambles to combine to send the prach message
+ *  max_preamble_index  -- max index for preambles (max 64)
+ *  preamble_power      -- initial power of preamble being sent
+ *  ramping_step        -- at how many steps we want to increase the ramp
+ *  ramping_db          -- power ramp up every time
+ *  max_ramping_db      -- maximum ramping floor
+ */
+typedef struct {
+  bool enabled;
+  int  num_of_preambles;
+  int  max_preamble_index;
+  int  preamble_power;
+  int  ramping_step;
+  int  ramping_db;
+  int  max_ramping_db;
+} msg1_attack_args_t;
+
 typedef struct {
   srsran::rf_args_t rf;
   trace_args_t      trace;
@@ -88,6 +108,8 @@ typedef struct {
   gw_args_t    gw;
 
   general_args_t general;
+
+  msg1_attack_args_t msg1;
 } all_args_t;
 
 /*******************************************************************************

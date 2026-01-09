@@ -28,6 +28,7 @@
 #include "srsran/phy/phch/prach.h"
 #include "srsran/phy/utils/debug.h"
 #include "srsran/phy/utils/vector.h"
+#include <stdlib.h> // For rand()
 
 #include "prach_tables.h"
 
@@ -563,6 +564,17 @@ int srsran_prach_init(srsran_prach_t* p, uint32_t max_N_ifft_ul)
 
     p->max_N_ifft_ul = max_N_ifft_ul;
 
+    // Initialize MSG1 parameters with defaults
+    p->msg1_enabled            = true;
+    p->msg1_num_preambles      = 1;
+    p->msg1_max_preamble_index = 31;
+    p->msg1_preamble_power     = 3.0f;
+    p->msg1_ramping_step       = 1;
+    p->msg1_ramping_db         = 1.0f;
+    p->msg1_max_ramping_db     = 3.0f;
+
+    DEBUG("PRACH Init - MSG1 parameters initialized to defaults");
+
     // Set up containers
     p->prach_bins = srsran_vec_cf_malloc(SRSRAN_PRACH_N_ZC_LONG);
     p->corr_spec  = srsran_vec_cf_malloc(SRSRAN_PRACH_N_ZC_LONG);
@@ -735,6 +747,13 @@ int srsran_prach_set_cell_(srsran_prach_t*      p,
         }
       }
     }
+
+    DEBUG("PRACH set_cell_ completed - MSG1 params: enabled=%d, num_preambles=%d, max_idx=%d, power=%.2f",
+          p->msg1_enabled,
+          p->msg1_num_preambles,
+          p->msg1_max_preamble_index,
+          p->msg1_preamble_power);
+
     ret = SRSRAN_SUCCESS;
   } else {
     ERROR("Invalid parameters N_ifft_ul=%d; config_idx=%d; root_seq_idx=%d;",
@@ -802,33 +821,99 @@ int srsran_prach_gen_all(srsran_prach_t* p, uint32_t freq_offset, cf_t* signal)
     uint32_t K       = DELTA_F / DELTA_F_RA;
     uint32_t begin   = PHI + (K * k_0) + (p->is_nr ? 0 : (K / 2));
 
-    if (6 + freq_offset > N_rb_ul) {
-      ERROR("Error no space for PRACH: frequency offset=%d, N_rb_ul=%d", freq_offset, N_rb_ul);
+    if (6 + freq_offset > N_rb_ul)
       return ret;
-    }
 
     srsran_vec_cf_zero(p->ifft_in, p->N_ifft_prach);
 
-    for (uint32_t i = 0; i < 2; i++) {
-      cf_t* sequence_data = get_precoded_dft(p, i);
+    // --- Use MSG1 configuration parameters ---
+    DEBUG("MSG1 Generation - Using config: enabled=%d, num_preambles=%d, max_index=%d, power=%.2f, "
+          "ramp_step=%d, ramp_db=%.2f, max_ramp_db=%.2f",
+          p->msg1_enabled,
+          p->msg1_num_preambles,
+          p->msg1_max_preamble_index,
+          p->msg1_preamble_power,
+          p->msg1_ramping_step,
+          p->msg1_ramping_db,
+          p->msg1_max_ramping_db);
+
+    // Get random seed based on max_preamble_index from config
+    uint32_t max_index   = p->msg1_max_preamble_index < 64 ? p->msg1_max_preamble_index : 31;
+    uint32_t random_seed = rand() % (max_index + 1);
+
+    DEBUG("MSG1 Generation - Random seed: %d (max_index: %d)", random_seed, max_index);
+
+    // Number of preambles to combine from config
+    uint32_t num_preambles = p->msg1_num_preambles > 0 ? p->msg1_num_preambles : 1;
+    if (num_preambles > 32) {
+      DEBUG("MSG1 Generation - Capping num_preambles from %d to 4 for safety", num_preambles);
+      num_preambles = 32; // Cap at 4 for safety
+    }
+
+    DEBUG("MSG1 Generation - Combining %d preamble(s)", num_preambles);
+
+    // Generate and combine multiple preambles
+    for (uint32_t i = 0; i < num_preambles; i++) {
+      uint32_t idx = (random_seed + i * (max_index / num_preambles)) % max_index;
+      cf_t*    seq = get_precoded_dft(p, idx);
+
+      DEBUG("MSG1 Generation - Preamble %d: using index %d", i + 1, idx);
 
       for (int k = 0; k < p->N_zc; k++) {
-        p->ifft_in[begin + k] += sequence_data[k];
+        p->ifft_in[begin + k] += seq[k];
       }
     }
 
     srsran_dft_run(&p->ifft, p->ifft_in, p->ifft_out);
 
-    float volume_knob = 1.0f / 5.0f;
-    for (int k = 0; k < p->N_ifft_prach; k++) {
-      p->ifft_out[k] *= volume_knob;
+    // Use power control from MSG1 config with ramping
+    // Apply base power and ramping
+    float power_ctrl = p->msg1_preamble_power;
+
+    DEBUG("MSG1 Generation - Base power: %.2f", power_ctrl);
+
+    // Apply ramping if configured
+    static uint32_t ramping_counter = 0;
+    if (p->msg1_ramping_step > 0) {
+      uint32_t ramp_steps    = ramping_counter / p->msg1_ramping_step;
+      float    total_ramp_db = ramp_steps * p->msg1_ramping_db;
+
+      DEBUG("MSG1 Generation - Ramping: counter=%d, steps=%d, total_ramp_db=%.2f",
+            ramping_counter,
+            ramp_steps,
+            total_ramp_db);
+
+      // Cap at max_ramping_db
+      if (total_ramp_db > p->msg1_max_ramping_db) {
+        DEBUG("MSG1 Generation - Ramping capped at max: %.2f dB (was %.2f dB)", p->msg1_max_ramping_db, total_ramp_db);
+        total_ramp_db = p->msg1_max_ramping_db;
+      }
+
+      // Convert dB to linear scale: 10^(dB/20)
+      float ramp_factor = powf(10.0f, total_ramp_db / 20.0f);
+      power_ctrl *= ramp_factor;
+
+      DEBUG("MSG1 Generation - Ramping factor: %.4f (linear), final power: %.2f", ramp_factor, power_ctrl);
+
+      ramping_counter++;
+    } else {
+      DEBUG("MSG1 Generation - No ramping (step=%d)", p->msg1_ramping_step);
     }
 
-    memcpy(signal, &p->ifft_out[p->N_ifft_prach - p->N_cp], p->N_cp * sizeof(cf_t));
+    for (int k = 0; k < p->N_ifft_prach; k++) {
+      p->ifft_out[k] *= power_ctrl;
+    }
 
+    DEBUG("MSG1 Generation - Applied power scaling: %.2f to %d samples", power_ctrl, p->N_ifft_prach);
+
+    memcpy(signal, &p->ifft_out[p->N_ifft_prach - p->N_cp], p->N_cp * sizeof(cf_t));
     for (int i = 0; i < p->N_seq; i++) {
       signal[p->N_cp + i] = p->ifft_out[i % p->N_ifft_prach];
     }
+
+    INFO("MSG1 Generation - Successfully generated PRACH signal with %d preamble(s), power=%.2f",
+         num_preambles,
+         power_ctrl);
 
     ret = SRSRAN_SUCCESS;
   }

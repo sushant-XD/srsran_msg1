@@ -232,6 +232,16 @@ struct phy_args_nr_t {
   float                  trs_cfo_ema_alpha     = 0.1f; ///< RSRP measurement exponential average alpha
   bool                   enable_worker_cfo     = true; ///< Enable/Disable open loop CFO correction at the workers
 
+  struct {
+    bool     enabled            = true;
+    uint32_t num_of_preambles   = 1;
+    uint32_t max_preamble_index = 31;
+    float    preamble_power     = 1.0f;
+    uint32_t ramping_step       = 1;
+    float    ramping_db         = 1.0f;
+    float    max_ramping_db     = 3.0f;
+  } msg1;
+
   phy_args_nr_t()
   {
     dl.nof_rx_antennas        = 1;

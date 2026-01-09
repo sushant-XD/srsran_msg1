@@ -93,6 +93,40 @@ int ue::init(const all_args_t& args_)
   phy_args_nr.store_pdsch_ko       = args.phy.nr_store_pdsch_ko;
   phy_args_nr.srate_hz             = args.rf.srate_hz;
 
+  phy_args_nr.msg1.enabled            = args.msg1.enabled;
+  phy_args_nr.msg1.num_of_preambles   = args.msg1.num_of_preambles;
+  phy_args_nr.msg1.max_preamble_index = args.msg1.max_preamble_index;
+  phy_args_nr.msg1.preamble_power     = static_cast<float>(args.msg1.preamble_power);
+  phy_args_nr.msg1.ramping_step       = args.msg1.ramping_step;
+  phy_args_nr.msg1.ramping_db         = static_cast<float>(args.msg1.ramping_db);
+  phy_args_nr.msg1.max_ramping_db     = static_cast<float>(args.msg1.max_ramping_db);
+
+  // Copy MSG1 attack parameters to PHY args
+  logger.debug("UE: Copying MSG1 parameters from args.msg1 to args.phy.msg1");
+
+  args.phy.msg1.enabled            = args.msg1.enabled;
+  args.phy.msg1.num_of_preambles   = args.msg1.num_of_preambles;
+  args.phy.msg1.max_preamble_index = args.msg1.max_preamble_index;
+  args.phy.msg1.preamble_power     = static_cast<float>(args.msg1.preamble_power);
+  args.phy.msg1.ramping_step       = args.msg1.ramping_step;
+  args.phy.msg1.ramping_db         = static_cast<float>(args.msg1.ramping_db);
+  args.phy.msg1.max_ramping_db     = static_cast<float>(args.msg1.max_ramping_db);
+
+  if (args.msg1.enabled) {
+    logger.info("UE: MSG1 attack configuration loaded from ue.conf:");
+    logger.info("  - Number of preambles: %d", args.msg1.num_of_preambles);
+    logger.info("  - Max preamble index: %d", args.msg1.max_preamble_index);
+    logger.info("  - Preamble power: %d (linear: %.2f)",
+                args.msg1.preamble_power,
+                static_cast<float>(args.msg1.preamble_power));
+    logger.info("  - Ramping step: %d", args.msg1.ramping_step);
+    logger.info("  - Ramping dB per step: %d (%.2f)", args.msg1.ramping_db, static_cast<float>(args.msg1.ramping_db));
+    logger.info(
+        "  - Max ramping dB: %d (%.2f)", args.msg1.max_ramping_db, static_cast<float>(args.msg1.max_ramping_db));
+  } else {
+    logger.info("UE: MSG1 attack mode is disabled in ue.conf");
+  }
+
   // init layers
   if (args.phy.nof_lte_carriers == 0) {
     // SA mode
@@ -279,7 +313,7 @@ int ue::parse_args(const all_args_t& args_)
   // Consider Carrier Aggregation support if more than one
   args.stack.rrc.nof_lte_carriers = args.phy.nof_lte_carriers;
   args.stack.rrc.nof_nr_carriers  = args.phy.nof_nr_carriers;
-  args.stack.rrc.support_ca = (args.phy.nof_lte_carriers > 1);
+  args.stack.rrc.support_ca       = (args.phy.nof_lte_carriers > 1);
 
   // Make sure fix sampling rate is set for SA mode
   if (args.phy.nof_lte_carriers == 0 and not std::isnormal(args.rf.srate_hz)) {

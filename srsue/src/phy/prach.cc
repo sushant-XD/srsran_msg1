@@ -45,6 +45,8 @@ void prach::init(uint32_t max_prb)
 {
   std::lock_guard<std::mutex> lock(mutex);
 
+  Debug("PRACH: init() called with max_prb=%d", max_prb);
+
   if (srsran_cfo_init(&cfo_h, SRSRAN_PRACH_MAX_LEN)) {
     ERROR("PRACH: Error initiating CFO");
     return;
@@ -63,6 +65,10 @@ void prach::init(uint32_t max_prb)
     return;
   }
 
+  Debug("PRACH: prach_obj initialized, MSG1 params in prach_obj: enabled=%d, num_preambles=%d",
+        prach_obj.msg1_enabled,
+        prach_obj.msg1_num_preambles);
+
   mem_initiated = true;
 }
 
@@ -79,9 +85,72 @@ void prach::stop()
   mem_initiated = false;
 }
 
+// set_msg1_params -- configures the struct for msg1_params from phy config passed in
+//
+void prach::set_msg1_params(bool     enabled,
+                            uint32_t num_preambles,
+                            uint32_t max_index,
+                            float    power,
+                            uint32_t ramp_step,
+                            float    ramp_db,
+                            float    max_ramp_db)
+{
+  std::lock_guard<std::mutex> lock(mutex);
+
+  Debug("PRACH: Setting MSG1 parameters - enabled=%d, num_preambles=%d, max_index=%d, power=%.2f, "
+        "ramp_step=%d, ramp_db=%.2f, max_ramp_db=%.2f",
+        enabled,
+        num_preambles,
+        max_index,
+        power,
+        ramp_step,
+        ramp_db,
+        max_ramp_db);
+
+  msg1_enabled       = enabled;
+  msg1_num_preambles = num_preambles;
+  msg1_max_index     = max_index;
+  msg1_power         = power;
+  msg1_ramp_step     = ramp_step;
+  msg1_ramp_db       = ramp_db;
+  msg1_max_ramp_db   = max_ramp_db;
+
+  if (cell_initiated) {
+    prach_obj.msg1_enabled            = msg1_enabled;
+    prach_obj.msg1_num_preambles      = msg1_num_preambles;
+    prach_obj.msg1_max_preamble_index = msg1_max_index;
+    prach_obj.msg1_preamble_power     = msg1_power;
+    prach_obj.msg1_ramping_step       = msg1_ramp_step;
+    prach_obj.msg1_ramping_db         = msg1_ramp_db;
+    prach_obj.msg1_max_ramping_db     = msg1_max_ramp_db;
+
+    logger.info("PRACH: msg1 info copied to prach object. Cell already initialized");
+  }
+
+  if (enabled) {
+    logger.info("MSG1 Attack Mode ENABLED - Config: %d preambles, max_idx=%d, power=%.2f, "
+                "ramp=[step:%d, db:%.2f, max:%.2f]",
+                num_preambles,
+                max_index,
+                power,
+                ramp_step,
+                ramp_db,
+                max_ramp_db);
+  } else {
+    logger.info("MSG1 Attack Mode DISABLED");
+  }
+}
+
 bool prach::set_cell(srsran_cell_t cell_, srsran_prach_cfg_t prach_cfg)
 {
   std::lock_guard<std::mutex> lock(mutex);
+
+  Debug("PRACH: set_cell() called for cell_id=%d", cell_.id);
+  Debug("PRACH: Current MSG1 params in class: enabled=%d, num_preambles=%d, max_idx=%d, power=%.2f",
+        msg1_enabled,
+        msg1_num_preambles,
+        msg1_max_index,
+        msg1_power);
 
   if (!mem_initiated) {
     ERROR("PRACH: Error must call init() first");
@@ -89,6 +158,15 @@ bool prach::set_cell(srsran_cell_t cell_, srsran_prach_cfg_t prach_cfg)
   }
 
   if (cell.id == cell_.id && cell_initiated && prach_cfg == cfg) {
+    Debug("PRACH: Cell already configured, updating msg1 parameters");
+    prach_obj.msg1_enabled            = msg1_enabled;
+    prach_obj.msg1_num_preambles      = msg1_num_preambles;
+    prach_obj.msg1_max_preamble_index = msg1_max_index;
+    prach_obj.msg1_preamble_power     = msg1_power;
+    prach_obj.msg1_ramping_step       = msg1_ramp_step;
+    prach_obj.msg1_ramping_db         = msg1_ramp_db;
+    prach_obj.msg1_max_ramping_db     = msg1_max_ramp_db;
+    Debug("PRACH: MSG1 parameters updated in prach object");
     return true;
   }
 
@@ -118,7 +196,25 @@ bool prach::set_cell(srsran_cell_t cell_, srsran_prach_cfg_t prach_cfg)
   transmitted_tti = -1;
   cell_initiated  = true;
 
-  logger.info("Finished setting new PRACH configuration.");
+  // Set MSG1 parameters in prach_obj
+  prach_obj.msg1_enabled            = msg1_enabled;
+  prach_obj.msg1_num_preambles      = msg1_num_preambles;
+  prach_obj.msg1_max_preamble_index = msg1_max_index;
+  prach_obj.msg1_preamble_power     = msg1_power;
+  prach_obj.msg1_ramping_step       = msg1_ramp_step;
+  prach_obj.msg1_ramping_db         = msg1_ramp_db;
+  prach_obj.msg1_max_ramping_db     = msg1_max_ramp_db;
+
+  Debug("PRACH: MSG1 params AFTER copying to prach_obj:");
+  Debug("  prach_obj.msg1_enabled = %d", prach_obj.msg1_enabled);
+  Debug("  prach_obj.msg1_num_preambles = %d", prach_obj.msg1_num_preambles);
+  Debug("  prach_obj.msg1_max_preamble_index = %d", prach_obj.msg1_max_preamble_index);
+  Debug("  prach_obj.msg1_preamble_power = %.2f", prach_obj.msg1_preamble_power);
+  Debug("  prach_obj.msg1_ramping_step = %d", prach_obj.msg1_ramping_step);
+  Debug("  prach_obj.msg1_ramping_db = %.2f", prach_obj.msg1_ramping_db);
+  Debug("  prach_obj.msg1_max_ramping_db = %.2f", prach_obj.msg1_max_ramping_db);
+
+  logger.info("Finished setting new PRACH configuration (cell_id=%d).", cell.id);
 
   return true;
 }
@@ -131,19 +227,28 @@ bool prach::generate_buffer(uint32_t f_idx)
         cfg.config_idx, cfg.tdd_config.sf_config, (f_idx / 6) * 10, f_idx % 6, cfg.freq_offset, cell.nof_prb);
   }
 #ifdef TEST_PRACH_ALL
-  logger.info("Generating All PRACH preambles to send");
+  if (msg1_enabled) {
+    logger.info("Generating MSG1 attack PRACH with custom parameters (freq_offset=%d)", freq_offset);
+  } else {
+    logger.info(
+        "Generating All PRACH preambles to send (freq_offset=%d). Msg1 enabled status: %d", freq_offset, msg1_enabled);
+  }
+
+  Debug("PRACH Buffer: Calling srsran_prach_gen_all with freq_offset=%d, f_idx=%d", freq_offset, f_idx);
+
   if (srsran_prach_gen_all(&prach_obj, freq_offset, signal_buffer)) {
     Error("Generating PRACH preamble %d", preamble_idx);
     return false;
   }
 #else
-  logger.info("Generating PRACH messages");
+  logger.info("Generating PRACH messages (preamble_idx=%d, freq_offset=%d)", preamble_idx, freq_offset);
   if (srsran_prach_gen(&prach_obj, preamble_idx, freq_offset, signal_buffer)) {
     Error("Generating PRACH preamble %d", preamble_idx);
     return false;
   }
 #endif
 
+  Debug("PRACH Buffer: Successfully generated buffer");
   return true;
 }
 
